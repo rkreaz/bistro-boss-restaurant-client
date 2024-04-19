@@ -19,13 +19,13 @@ const PopularMenu = () => {
                 subHeading='---Check it out---'
                 Heading='FROM OUR MENU'
             ></SectionTitle>
-            <div className='grid grid-cols-2 gap-8 mt-10 mb-10'>
+            <div className='grid grid-cols-2 gap-8 mt-10 mb-8'>
                 {menu.map(item => <ItemMenu
                     key={item._id}
                     item={item}
                 ></ItemMenu>)}
             </div>
-            <div className='text-center mb-10'>
+            <div className='text-center mb-16'>
                 <button className="btn btn-outline text-[#fff] text-base border-0 border-b-4">View Full  Menu</button>
             </div>
         </section>
