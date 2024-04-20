@@ -1,15 +1,15 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import './Navbar.css'
 
 const Navbar = () => {
     const navLink = <>
         <div className='nav'>
-            <NavLink className='nav uppercase'>HOME</NavLink>
-            <NavLink className='nav uppercase'>CONTACT US</NavLink>
-            <NavLink className='nav uppercase'>DASHBOARD</NavLink>
+            <NavLink className='nav uppercase' to={'/'}>HOME</NavLink>
+            <NavLink className='nav uppercase' to={'/menu'}>Our Menu</NavLink>
+            {/* <NavLink className='nav uppercase'>DASHBOARD</NavLink>
             <NavLink className='nav uppercase'>Our Menu</NavLink>
-            <NavLink className='nav uppercase'>Our Shop</NavLink>
+            <NavLink className='nav uppercase'>Our Shop</NavLink> */}
         </div>
 
     </>
@@ -25,10 +25,10 @@ const Navbar = () => {
                             {navLink}
                         </ul>
                     </div>
-                    <div>
+                    <Link to={'/'}>
                         <h1 className="text-xl font-bold">BISTRO BOSS</h1>
                         <p className="text-base uppercase">Restaurant</p>
-                    </div>
+                    </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
