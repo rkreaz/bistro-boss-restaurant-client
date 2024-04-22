@@ -1,6 +1,7 @@
 import React from 'react';
 import ItemMenu from '../Shard/ItemMenu/ItemMenu';
 import Cover from '../Shard/Cover/Cover';
+import { Link } from 'react-router-dom';
 
 const MenuCategory = ({ items, title, img, button }) => {
     return (
@@ -12,9 +13,11 @@ const MenuCategory = ({ items, title, img, button }) => {
                     item={item}
                 ></ItemMenu>)}
             </div>
-            <div className='text-center mb-24'>
-                <button className="btn btn-outline text-[#fff] text-base border-0 border-b-4 uppercase">{button}</button>
-            </div>
+            <Link to={`/shop/${title}`}>
+                <div className='text-center mb-24'>
+                    <button className="btn btn-outline text-[#fff] text-base border-0 border-b-4 uppercase">{button}</button>
+                </div>
+            </Link>
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Helmet } from 'react-helmet-async';
 import Cover from '../../Shard/Cover/Cover';
 import useMenu from '../../../hooks/useMenu';
