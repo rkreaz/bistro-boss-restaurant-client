@@ -11,7 +11,7 @@ const useMenu = () => {
                 setMenu(data);
                 setLoading(false);
             });
-    }, [])
+    }, [fetch])
 
     return [menu, loading]
 }

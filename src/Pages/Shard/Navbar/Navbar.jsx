@@ -4,9 +4,11 @@ import './Navbar.css'
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import { FaShoppingCart } from "react-icons/fa";
+import useCard from "../../../hooks/useCard";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [card] = useCard();
 
     const handleLogOut = () => {
         logOut()
@@ -21,10 +23,10 @@ const Navbar = () => {
             <NavLink className='nav uppercase' to={'/shop/salad'}>Our Shop</NavLink>
             <NavLink className='nav uppercase' to={'/parsonal'}>Parsonal</NavLink>
 
-            <NavLink className='nav' to={'/'}>
+            <NavLink className='nav' to={'/dashboard/cart'}>
                 <button className="btn bg-transparent border-0 hover:bg-transparent p-0">
-                   <FaShoppingCart className="text-sm"></FaShoppingCart>
-                    <div className="badge badge-secondary mr-4">+0</div>
+                    <FaShoppingCart className="text-sm"></FaShoppingCart>
+                    <div className="badge badge-secondary mr-4">+{card.length}</div>
                 </button>
             </NavLink>
 

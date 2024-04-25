@@ -6,11 +6,13 @@ import { useForm } from 'react-hook-form';
 import { Helmet } from 'react-helmet-async';
 import { AuthContext } from '../Providers/AuthProviders';
 import Swal from 'sweetalert2';
+import useAxiosPublic from '../hooks/useAxiosPublic';
 
 const Register = () => {
     const { register, handleSubmit, reset, formState: { errors }, } = useForm();
     const { createUser, updateProfileUser, loginWithGoogle } = useContext(AuthContext);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const axiosPublic = useAxiosPublic();
 
     const onSubmit = data => {
         createUser(data.email, data.password)
@@ -20,13 +22,24 @@ const Register = () => {
                 updateProfileUser(data.name, data.photo)
                     .then(() => {
                         console.log('user Profile Info Update');
-                        reset();
-                        Swal.fire({
-                            title: "Success",
-                            text: "Create User has been successfully.",
-                            icon: "success"
-                        });
-                        navigate('/')
+
+                        const userInfo = {
+                            name: data.name,
+                            email: data.email
+                        }
+
+                        axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        title: "Success",
+                                        text: "Create User has been successfully.",
+                                        icon: "success"
+                                    });
+                                    navigate('/')
+                                }
+                            })
                     })
                     .catch((error) => {
                         console.log(error);
@@ -42,13 +55,23 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                Swal.fire({
-                    title: "Success",
-                    text: "Your Google Login has been successfully.",
-                    icon: "success"
-                });
-                navigate(location?.state ? location?.state : '/')
 
+                const userInfo = {
+                    email: result.user?.email,
+                    name: result.user?.displayName
+                }
+
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        console.log(res.data);
+                        Swal.fire({
+                            title: "Success",
+                            text: "Your Google Login has been successfully.",
+                            icon: "success"
+                        });
+                        navigate(location?.state ? location?.state : '/')
+
+                    })
             })
             .catch(error => {
                 console.log(error);

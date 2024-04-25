@@ -6,6 +6,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, val
 import { Helmet } from 'react-helmet-async';
 import { AuthContext } from '../Providers/AuthProviders';
 import Swal from 'sweetalert2';
+import useAxiosPublic from '../hooks/useAxiosPublic';
 
 const Login = () => {
 
@@ -13,6 +14,7 @@ const Login = () => {
     const { signIn, loginWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation;
+    const axiosPublic = useAxiosPublic();
 
     const from = location.state?.from?.pathname || '/';
 
@@ -59,13 +61,23 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                Swal.fire({
-                    title: "Success",
-                    text: "Your Google Login has been successfully.",
-                    icon: "success"
-                });
-                navigate(location?.state ? location?.state : '/')
 
+                const userInfo = {
+                    email: result.user?.email,
+                    name: result.user?.displayName
+                }
+
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        console.log(res.data);
+                        Swal.fire({
+                            title: "Success",
+                            text: "Your Google Login has been successfully.",
+                            icon: "success"
+                        });
+                        navigate(location?.state ? location?.state : '/')
+
+                    })
             })
             .catch(error => {
                 console.log(error);

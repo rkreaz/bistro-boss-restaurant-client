@@ -4,7 +4,7 @@ import useMenu from '../../../hooks/useMenu';
 import Card from '../Card/Card';
 
 const Cards = () => {
-    const [menu] = useMenu([]);
+    const [menu, reFetch] = useMenu([]);
     const popular = menu.filter(item => item.category === 'popular')
     
     return (
