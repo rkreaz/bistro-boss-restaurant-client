@@ -10,7 +10,7 @@ import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
 const OurShop = () => {
-    const categories = ['salad', 'pizza', 'soup', 'dessert', 'drinks'];
+    const categories = ['salad', 'pizza', 'soup', 'dessert', 'drinks', 'popular'];
     const { category } = useParams();
     const initialIndex = categories.indexOf(category);
     const [tabIndex, setTabIndex] = useState(initialIndex);
@@ -22,6 +22,7 @@ const OurShop = () => {
     const pizza = menu.filter(item => item.category === 'pizza');
     const salad = menu.filter(item => item.category === 'salad');
     const soup = menu.filter(item => item.category === 'soup');
+    const popular = menu.filter(item => item.category === 'popular');
 
     return (
         <div>
@@ -39,6 +40,7 @@ const OurShop = () => {
                         <Tab>soups</Tab>
                         <Tab>desserts</Tab>
                         <Tab>drinks</Tab>
+                        <Tab>popular</Tab>
                     </TabList>
                     <TabPanel>
                         <div className='mt-10 grid grid-cols-3 gap-12'>
@@ -72,6 +74,13 @@ const OurShop = () => {
                         <div className='mt-10 grid grid-cols-3 gap-12'>
                             {
                                 drinks.map(card => <Card key={card._id} card={card}></Card>)
+                            }
+                        </div>
+                    </TabPanel>
+                    <TabPanel>
+                        <div className='mt-10 grid grid-cols-3 gap-12'>
+                            {
+                                popular.map(card => <Card key={card._id} card={card}></Card>)
                             }
                         </div>
                     </TabPanel>
