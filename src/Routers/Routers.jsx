@@ -16,6 +16,9 @@ import AddItems from "../Pages/Dashboard/AddItems/AddItems";
 import AdminRoute from "./AdminRoute";
 import ManageItems from "../Pages/Dashboard/ManageItems/ManageItems";
 import UpdateItem from "../Pages/Dashboard/UpdateItem/UpdateItem";
+import Contact from "../Pages/Home/Contact/Contact";
+import Payment from "../Pages/Dashboard/Payment/Payment";
+import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 
 export const router = createBrowserRouter([
     {
@@ -55,6 +58,18 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/cart',
                 element: <Cart></Cart>,
+            },
+            {
+                path: '/dashboard/contact',
+                element: <Contact></Contact>,
+            },
+            {
+                path: '/dashboard/reservation',
+                element: <Payment></Payment>,
+            },
+            {
+                path: '/dashboard/paymentHistory',
+                element: <PaymentHistory></PaymentHistory>,
             },
 
             // Admin Users Panel

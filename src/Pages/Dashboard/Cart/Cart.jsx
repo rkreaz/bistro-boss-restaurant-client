@@ -4,6 +4,7 @@ import useCard from '../../../hooks/useCard';
 import { RiDeleteBinLine } from "react-icons/ri";
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
     const [card, refetch] = useCard();
@@ -20,7 +21,7 @@ const Cart = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
-        }).then((result) => { 
+        }).then((result) => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/cards/${id}`,)
                     .then(res => {
@@ -47,7 +48,15 @@ const Cart = () => {
             <div className='flex justify-evenly  mt-14'>
                 <h2 className='text-[#fff] text-3xl font-bold'>Total orders: {card.length}</h2>
                 <h2 className='text-[#fff] text-3xl font-bold'>total price: ${totalPrice}</h2>
-                <button className='bg-[#D1A054] text-[#fff] text-xl font-semibold p-3 rounded-lg'>Pay</button>
+
+                {card.length ? <Link to={'/dashboard/reservation'}>
+                    <button className='bg-[#D1A054] text-[#fff] text-xl font-semibold p-3 rounded-lg'>Pay</button>
+                </Link>
+                :
+                <button disabled className='bg-[#271e12] text-[#998f81] text-xl font-semibold p-3 rounded-lg'>Pay</button>
+                }
+
+
             </div>
             <div className='ml-16 mb-20'>
                 <div className="overflow-x-auto rounded-t-lg mt-5">
