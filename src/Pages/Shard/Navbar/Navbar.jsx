@@ -5,10 +5,12 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import { FaShoppingCart } from "react-icons/fa";
 import useCard from "../../../hooks/useCard";
+import useAdmin from "../../../hooks/useAdmin";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const [card] = useCard();
+    const [isAdmin] = useAdmin();
 
     const handleLogOut = () => {
         logOut()
@@ -29,6 +31,13 @@ const Navbar = () => {
                     <div className="badge badge-secondary mr-4">+{card.length}</div>
                 </button>
             </NavLink>
+
+            {
+                user && isAdmin && <NavLink className='nav uppercase' to={'/dashboard/adminHome'}>Dashboard</NavLink>
+            }
+            {
+                user && !isAdmin && <NavLink className='nav uppercase' to={'/dashboard/userHome'}>Dashboard</NavLink>
+            }
 
 
             {/* {
