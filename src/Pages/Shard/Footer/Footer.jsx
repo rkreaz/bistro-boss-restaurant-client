@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <>
             <div className="theme">
-                <div className="max-w-6xl mx-auto mb-96">
+                <div className="max-w-6xl mx-auto">
                     <footer className="grid grid-cols-2 theme_text">
                         <aside className=" p-14 max-sm:p-5 text-center">
                             <h1 className="text-2xl font-bold max-sm:text-sm">CONTACT US</h1>
