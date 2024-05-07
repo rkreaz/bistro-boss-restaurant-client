@@ -9,9 +9,10 @@ import PopularMenu from "../PopularMenu/PopularMenu";
 import Testimonial from "../Testimonial/Testimonial";
 
 const Home = () => {
-   
+
     return (
-        <div>
+
+        <>
             <Helmet>
                 <title>Bistro Boss | Home</title>
             </Helmet>
@@ -23,7 +24,8 @@ const Home = () => {
             <Cards></Cards>
             <Featured></Featured>
             <Testimonial></Testimonial>
-        </div>
+
+        </>
     );
 };
 

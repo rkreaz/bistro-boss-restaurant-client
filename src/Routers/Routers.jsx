@@ -8,7 +8,6 @@ import OurShop from "../Pages/OurShop/OurShop";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 import PrivateRoute from "./PrivateRoute";
-import Parsonal from "../Parsonal/Parsonal";
 import Dashboard from "../Layout/Dashboard";
 import Cart from "../Pages/Dashboard/Cart/Cart";
 import AllUsers from "../Pages/Dashboard/AllUsres/AllUsers";
@@ -40,6 +39,10 @@ export const router = createBrowserRouter([
                 element: <OurShop></OurShop>
             },
             {
+                path: '/contact',
+                element: <Contact></Contact>,
+            },
+            {
                 path: '/login',
                 element: <Login></Login>
             },
@@ -47,10 +50,7 @@ export const router = createBrowserRouter([
                 path: '/register',
                 element: <Register></Register>
             },
-            {
-                path: '/parsonal',
-                element: <PrivateRoute><Parsonal></Parsonal></PrivateRoute>
-            }
+
         ]
     },
     {

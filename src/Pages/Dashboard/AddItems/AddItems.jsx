@@ -1,4 +1,3 @@
-import React from 'react';
 import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import { useForm } from 'react-hook-form';
 import { FaUtensils } from 'react-icons/fa';
@@ -49,7 +48,7 @@ const AddItems = () => {
     };
 
     return (
-        <div>
+        <div className=''>
             <SectionTitle subHeading={"What's new?"} Heading={'ADD AN ITEM'}
             ></SectionTitle>
 
@@ -59,18 +58,18 @@ const AddItems = () => {
                     <div>
                         <label className="form-control w-full">
                             <div className="label">
-                                <span className="label-text text-xl font-bold">Recipe Name*</span>
+                                <span className="text-xl font-semibold">Recipe Name*</span>
                             </div>
-                            <input type="text" {...register("name", { required: true })} placeholder="Recipe Name" className="input input-bordered w-full" />
+                            <input type="text" {...register("name", { required: true })} placeholder="Recipe Name" className="input input-bordered w-full bg-[#f3eeee] text-[#000]" />
                         </label>
                     </div>
 
                     <div className='flex gap-6'>
                         <label className="form-control w-full">
                             <div className="label">
-                                <span className="label-text text-xl font-bold">Category*</span>
+                                <span className="text-xl font-semibold">Category*</span>
                             </div>
-                            <select defaultValue={'default'} {...register("category", { required: true })} className="select select-bordered w-full">
+                            <select defaultValue={'default'} {...register("category", { required: true })} className="select select-bordered w-full bg-[#f3eeee] text-[#000]">
                                 <option disabled value={'default'}>Select a Category</option>
                                 <option value="salad">Salad</option>
                                 <option value="pizza">Pizza</option>
@@ -83,9 +82,9 @@ const AddItems = () => {
 
                         <label className="form-control w-full">
                             <div className="label">
-                                <span className="label-text text-xl font-bold">Price*</span>
+                                <span className="text-xl font-semibold">Price*</span>
                             </div>
-                            <input type="number" {...register("price", { required: true })} placeholder="Price" className="input input-bordered w-full" />
+                            <input type="number" {...register("price", { required: true })} placeholder="Price" className="input input-bordered w-full bg-[#f3eeee] text-[#000]" />
                         </label>
 
                     </div>
@@ -93,17 +92,17 @@ const AddItems = () => {
                     <div>
                         <label className="form-control w-full">
                             <div className="label">
-                                <span className="label-text text-xl font-bold">Recipe Details*</span>
+                                <span className="text-xl font-semibold">Recipe Details*</span>
                             </div>
-                            <textarea {...register("recipe", { required: true })} className="textarea textarea-primary" placeholder="Recipe Details"></textarea>
+                            <textarea {...register("recipe", { required: true })} className="textarea textarea-primary bg-[#f3eeee] text-[#000]" placeholder="Recipe Details"></textarea>
                         </label>
                     </div>
 
                     <div>
-                        <input {...register("image", { required: true })} type="file" className="file-input file-input-bordered file-input-info w-full max-w-xs" />
+                        <input {...register("image", { required: true })} type="file" className="file-input file-input-bordered file-input-info w-full max-w-xs bg-[#f3eeee] text-[#000]" />
                     </div>
 
-                    <button className='btn bg-[#8E6526] text-[#fff] text-lg font-bold'>
+                    <button className='btn bg-[#8E6526] text-[#fff] text-lg font-semibold'>
                         Add Item <FaUtensils></FaUtensils>
                     </button>
 

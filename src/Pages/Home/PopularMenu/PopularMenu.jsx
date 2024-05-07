@@ -17,21 +17,23 @@ const PopularMenu = () => {
     //         })
     // }, [])
 
-    
+
     return (
-        <section>
-            <SectionTitle
-                subHeading='---Check it out---'
-                Heading='POPULAR MENU'
-            ></SectionTitle>
-            <div className='grid grid-cols-2 gap-8 mt-10 mb-8'>
-                {popular.map(item => <ItemMenu
-                    key={item._id}
-                    item={item}
-                ></ItemMenu>)}
-            </div>
-            <div className='text-center mb-16'>
-                <button className="btn btn-outline text-[#fff] text-base border-0 border-b-4">View Full  Menu</button>
+        <section className='theme'>
+            <div className='max-w-6xl mx-auto'>
+                <SectionTitle
+                    subHeading='---Check it out---'
+                    Heading='POPULAR MENU'
+                ></SectionTitle>
+                <div className='grid lg:grid-cols-2 sm:grid-cols-2  gap-8 mt-10 mb-8 px-5'>
+                    {popular.map(item => <ItemMenu
+                        key={item._id}
+                        item={item}
+                    ></ItemMenu>)}
+                </div>
+                <div className='text-center pb-16 max-sm:pb-5'>
+                    <button className="btn btn-outline text-[#fff] bg-[#9C0C0C] text-base border-0 border-b-4 theme_text">View Full  Menu</button>
+                </div>
             </div>
         </section>
     );

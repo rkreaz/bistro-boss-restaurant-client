@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { FaDollarSign, FaUsers } from "react-icons/fa";
 import { GrUserManager } from "react-icons/gr";
 import { LiaCarSideSolid } from "react-icons/lia";
+import PropTypes from "prop-types";
 
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, PieChart, Pie, Legend } from 'recharts';
 
@@ -46,7 +47,7 @@ const AdminHome = () => {
 
     // pie Char tData
     const RADIAN = Math.PI / 180;
-    const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+    const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent}) => {
         const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
         const x = cx + radius * Math.cos(-midAngle * RADIAN);
         const y = cy + radius * Math.sin(-midAngle * RADIAN);
@@ -165,6 +166,14 @@ const AdminHome = () => {
 
         </div>
     );
+};
+
+AdminHome.propTypes = {
+    fill: PropTypes.object,
+    x: PropTypes.object,
+    y: PropTypes.object,
+    width: PropTypes.object,
+    height: PropTypes.object
 };
 
 export default AdminHome;

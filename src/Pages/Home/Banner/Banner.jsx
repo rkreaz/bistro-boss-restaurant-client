@@ -8,10 +8,13 @@ import image4 from '../../../assets/home/04.jpg'
 import image5 from '../../../assets/home/05.png'
 import image6 from '../../../assets/home/06.png'
 
+import './banner.css'
+
+
 const Banner = () => {
     return (
-        <div>
-            <Carousel className="text-center">
+        <div className='theme'>
+            <Carousel className="text-center w-full">
                 <div>
                     <img src={image1} />
                 </div>

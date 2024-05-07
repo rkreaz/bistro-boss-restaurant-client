@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from "prop-types";
 import useAuth from '../../../hooks/useAuth';
 import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -6,7 +6,7 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import useCard from '../../../hooks/useCard';
 
 const Card = ({ card }) => {
-    const { name, recipe, image, price, _id} = card;
+    const { name, recipe, image, price, _id } = card;
     const { user } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
@@ -24,19 +24,19 @@ const Card = ({ card }) => {
                 price
             }
             axiosSecure.post('/cards', cartItem)
-            .then(res => {
-                console.log(res.data);
-                if(res.data.insertedId){
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: `${name} Added To Your Card`,
-                        showConfirmButton: false,
-                        timer: 1500
-                      });
-                      reFetch()
-                }
-            })
+                .then(res => {
+                    console.log(res.data);
+                    if (res.data.insertedId) {
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: `${name} Added To Your Card`,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        reFetch()
+                    }
+                })
         }
         else {
             Swal.fire({
@@ -49,25 +49,28 @@ const Card = ({ card }) => {
                 confirmButtonText: "Yes, Login!"
             }).then((result) => {
                 if (result.isConfirmed) {
-                   // Send Card Items To Login Page.
-                   navigate('/login', {state:{from: location}})
+                    // Send Card Items To Login Page.
+                    navigate('/login', { state: { from: location } })
                 }
             });
         }
     }
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-2xl border">
+            <div className="card bg-[#F90101] shadow-2xl border max-sm:mt-8">
                 <figure><img className='w-full h-60' src={image} alt="Shoes" /></figure>
                 <p className='text-[#fff] bg-[#F90101] absolute right-0 px-4 py-1 rounded-lg mr-2 mt-2'>${price}</p>
-                <div className="card-body">
-                    <h2 className="card-title">{name}</h2>
-                    <p>{recipe}</p>
-                    <button onClick={handleAddToCard} className="btn btn-outline text-[#fff] text-base border-0 border-b-4">add to cart</button>
+                <div className="card-body h-64">
+                    <h2 className="card-title max-sm:text-lg">{name}</h2>
+                    <p className="max-sm:text-sm">{recipe}</p>
+                    <button onClick={handleAddToCard} className="btn btn-outline text-[#fff] bg-[#9C0C0C] text-base border-0 border-b-4">add to cart</button>
                 </div>
             </div>
         </div>
     );
+};
+Card.propTypes = {
+    card: PropTypes.object,
 };
 
 export default Card;

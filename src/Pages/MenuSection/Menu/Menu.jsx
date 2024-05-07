@@ -20,32 +20,32 @@ const Menu = () => {
     const soup = menu.filter(item => item.category === 'soup');
 
     return (
-        <div>
-            <Helmet>
-                <title>Bistro Boss | Menu</title>
-            </Helmet>
-            <Cover img={menuIng} title={"OUR MENU"} pra={'Would You Like To Try A Dish?'}></Cover>
+        <div className='theme'>
+            <div className='max-w-6xl mx-auto '>
+                <Helmet>
+                    <title>Bistro Boss | Menu</title>
+                </Helmet>
+                <Cover img={menuIng} title={"OUR MENU"} pra={'Would You Like To Try A Dish?'}></Cover>
 
-            {/* main cover */}
-            <SectionTitle subHeading={"Don't miss"} Heading={"TODAY'S OFFER"}></SectionTitle>
+                {/* main cover */}
+                <SectionTitle subHeading={"Don't miss"} Heading={"TODAY'S OFFER"}></SectionTitle>
 
-            {/* offered menu items */}
-            <MenuCategory items={offered} button={'ORDER YOUR FAVOURITE Offered FOOD'}></MenuCategory>
+                {/* offered menu items */}
+                <MenuCategory items={offered} button={'ORDER YOUR FAVOURITE Offered FOOD'}></MenuCategory>
 
-            {/* dessert menu items */}
-            <MenuCategory items={desserts} title={'dessert'} img={dessertImg} button={'ORDER YOUR FAVOURITE Desserts FOOD'}></MenuCategory>
+                {/* dessert menu items */}
+                <MenuCategory items={desserts} title={'dessert'} img={dessertImg} button={'ORDER YOUR FAVOURITE Desserts FOOD'}></MenuCategory>
 
-            {/* pizza menu items */}
-            <MenuCategory items={pizza} title={'pizza'} img={pizzaImg} button={'ORDER YOUR FAVOURITE Pizza FOOD'}></MenuCategory>
+                {/* pizza menu items */}
+                <MenuCategory items={pizza} title={'pizza'} img={pizzaImg} button={'ORDER YOUR FAVOURITE Pizza FOOD'}></MenuCategory>
 
-            {/* salad menu items */}
-            <MenuCategory items={salad} title={'salad'} img={saladImg} button={'ORDER YOUR FAVOURITE Salad FOOD'}></MenuCategory>
+                {/* salad menu items */}
+                <MenuCategory items={salad} title={'salad'} img={saladImg} button={'ORDER YOUR FAVOURITE Salad FOOD'}></MenuCategory>
 
-            {/* soup menu items */}
-            <MenuCategory items={soup} title={'soup'} img={soupImg} button={'ORDER YOUR FAVOURITE SOUP FOOD'}></MenuCategory>
-
-           
-          
+                {/* soup menu items */}
+                <MenuCategory items={soup} title={'soup'} img={soupImg} button={'ORDER YOUR FAVOURITE SOUP FOOD'}></MenuCategory>
+            </div>
+            <p className='border-t-2 pb-10'></p>
         </div>
     );
 };

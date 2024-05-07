@@ -1,7 +1,7 @@
-import React from 'react';
 import ItemMenu from '../Shard/ItemMenu/ItemMenu';
 import Cover from '../Shard/Cover/Cover';
 import { Link } from 'react-router-dom';
+import PropTypes from "prop-types";
 
 const MenuCategory = ({ items, title, img, button }) => {
     return (
@@ -14,12 +14,19 @@ const MenuCategory = ({ items, title, img, button }) => {
                 ></ItemMenu>)}
             </div>
             <Link to={`/shop/${title}`}>
-                <div className='text-center mb-24'>
-                    <button className="btn btn-outline text-[#fff] text-base border-0 border-b-4 uppercase">{button}</button>
+                <div className='text-center pb-24'>
+                    <button className="btn btn-outline text-[#fff] theme_text bg-[#9C0C0C] text-base border-0 border-b-4 uppercase">{button}</button>
                 </div>
             </Link>
         </div>
     );
+};
+
+MenuCategory.propTypes = {
+    items: PropTypes.object,
+    title: PropTypes.object,
+    img: PropTypes.object,
+    button: PropTypes.object
 };
 
 export default MenuCategory;

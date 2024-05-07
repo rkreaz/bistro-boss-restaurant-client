@@ -26,7 +26,7 @@ const CheckoutForm = () => {
                     setClientSecret(res.data.clientSecret)
                 })
         }
-    }, [])
+    }, [axiosSecure, totalPrice])
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -42,7 +42,7 @@ const CheckoutForm = () => {
         if (card === null) {
             return;
         }
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
+        const { error } = await stripe.createPaymentMethod({
             type: 'card',
             card,
         });
@@ -109,7 +109,7 @@ const CheckoutForm = () => {
                                 fontSize: '16px',
                                 color: '#008140',
                                 '::placeholder': {
-                                    color: '#fff',
+                                    color: '#000',
                                 },
                             },
                             invalid: {

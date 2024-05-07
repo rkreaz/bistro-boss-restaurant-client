@@ -1,90 +1,80 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Cover from '../Shard/Cover/Cover';
 import ourShopImg from '../../assets/shop/banner2.jpg'
-
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import useMenu from '../../hooks/useMenu';
 import Card from '../Home/Card/Card';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import './ourshop.css'
 
 const OurShop = () => {
-    const categories = ['salad', 'pizza', 'soup', 'dessert', 'drinks', 'popular'];
-    const { category } = useParams();
-    const initialIndex = categories.indexOf(category);
-    const [tabIndex, setTabIndex] = useState(initialIndex);
     const [menu] = useMenu();
+    const [listCat, setListCat] = useState([]);
+    const [filterMenu, setFilterMenu] = useState([]);
+    const { category: menuCat } = useParams();
+    const [page, setPage] = useState(0);
+    const [limit, setLimit] = useState(6)
 
 
-    const drinks = menu.filter(item => item.category === 'drinks');
-    const desserts = menu.filter(item => item.category === 'dessert');
-    const pizza = menu.filter(item => item.category === 'pizza');
-    const salad = menu.filter(item => item.category === 'salad');
-    const soup = menu.filter(item => item.category === 'soup');
-    const popular = menu.filter(item => item.category === 'popular');
+    menu?.map(c => {
+        const checkExists = listCat.includes(c.category);
+        if (!checkExists) {
+            setListCat([...listCat, c.category]);
+        }
+    })
 
+
+    useEffect(() => {
+        const filterCat = menu.filter(m => m.category === menuCat)
+        setFilterMenu(filterCat);
+    }, [menu, menuCat])
+
+    const pageNumber = Math.ceil(filterMenu.length / limit);
+
+    // const pageList = new Array(pageNumber).fill(1)
+    const pageList = [...Array(pageNumber).keys()]
+
+    const handleLimit = (e) => {
+        setLimit(e.target.value)
+        setPage(0)
+    }
     return (
-        <div>
-            <Helmet>
-                <title>Bistro Boss | Our Shop</title>
-            </Helmet>
+        <div className='theme'>
+            <div  className='max-w-6xl mx-auto theme_text'>
+                <Helmet>
+                    <title>Bistro Boss | Our Shop</title>
+                </Helmet>
 
-            <Cover img={ourShopImg} title={'OUR SHOP'} pra={'WOULD YOU LIKE TO TRY A DISH?'}></Cover>
+                <Cover img={ourShopImg} title={'OUR SHOP'} pra={'WOULD YOU LIKE TO TRY A DISH?'}></Cover>
 
-            <div className='mt-20 mb-16 text-center'>
-                <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-                    <TabList>
-                        <Tab>Salad</Tab>
-                        <Tab>pizza</Tab>
-                        <Tab>soups</Tab>
-                        <Tab>desserts</Tab>
-                        <Tab>drinks</Tab>
-                        <Tab>popular</Tab>
-                    </TabList>
-                    <TabPanel>
-                        <div className='mt-10 grid grid-cols-3 gap-12'>
-                            {
-                                salad.map(card => <Card key={card._id} card={card}></Card>)
-                            }
+                <div className='mt-20 pb-16'>
+
+                    <div className='flex justify-center'>
+                        {listCat.length ? listCat.map((l, index) => <NavLink key={index} className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "activeCatMenu" : ""
+                        } to={`/shop/${l}`}><div onClick={() => setPage(0)} className='mr-5 cursor-pointer' key={index}>{l}</div></NavLink>) : ''}
+                    </div>
+
+                    <div className='mt-10 grid grid-cols-3 gap-12'>
+                        {filterMenu.length ? filterMenu.slice(limit * page, limit * (page + 1)).map(i => <Card key={i._id} card={i}></Card>) : ''}
+                    </div>
+                    <div className='mt-10 text-center flex items-center justify-center theme_text'>
+                        <div className="join">
+                            <button disabled={page === 0 ? true : false} onClick={() => setPage(page - 1)} className="join-item btn">prev</button>
+                            {pageList.map((p, index) => <input onClick={() => setPage(index)} key={index} className="join-item btn btn-square" type="radio" name="options" aria-label={index + 1} checked={page === index ? true : ''} />)}
+                            <button disabled={pageNumber === page + 1 ? true : false} onClick={() => setPage(page + 1)} className="join-item btn">next</button>
                         </div>
-                    </TabPanel>
-                    <TabPanel>
-                        <div className='mt-10 grid grid-cols-3 gap-12'>
-                            {
-                                pizza.map(card => <Card key={card._id} card={card}></Card>)
-                            }
+                        <div>
+                            <select onChange={handleLimit} defaultValue={limit} className="px-3 py-3 rounded-r-lg">
+                                <option value={3}>3</option>
+                                <option value={6}>6</option>
+                                <option value={9}>9</option>
+                            </select>
                         </div>
-                    </TabPanel>
-                    <TabPanel>
-                        <div className='mt-10 grid grid-cols-3 gap-12'>
-                            {
-                                soup.map(card => <Card key={card._id} card={card}></Card>)
-                            }
-                        </div>
-                    </TabPanel>
-                    <TabPanel>
-                        <div className='mt-10 grid grid-cols-3 gap-12'>
-                            {
-                                desserts.map(card => <Card key={card._id} card={card}></Card>)
-                            }
-                        </div>
-                    </TabPanel>
-                    <TabPanel>
-                        <div className='mt-10 grid grid-cols-3 gap-12'>
-                            {
-                                drinks.map(card => <Card key={card._id} card={card}></Card>)
-                            }
-                        </div>
-                    </TabPanel>
-                    <TabPanel>
-                        <div className='mt-10 grid grid-cols-3 gap-12'>
-                            {
-                                popular.map(card => <Card key={card._id} card={card}></Card>)
-                            }
-                        </div>
-                    </TabPanel>
-                </Tabs>
+                    </div>
+                </div>
+                <p className='border-t-2 pb-10'></p>
             </div>
         </div>
     );

@@ -1,4 +1,3 @@
-import React from 'react';
 import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import useCard from '../../../hooks/useCard';
 import { RiDeleteBinLine } from "react-icons/ri";
@@ -46,8 +45,8 @@ const Cart = () => {
             ></SectionTitle>
 
             <div className='flex justify-evenly  mt-14'>
-                <h2 className='text-[#fff] text-3xl font-bold'>Total orders: {card.length}</h2>
-                <h2 className='text-[#fff] text-3xl font-bold'>total price: ${totalPrice}</h2>
+                <h2 className=' text-3xl font-bold'>Total orders: {card.length}</h2>
+                <h2 className=' text-3xl font-bold'>total price: ${totalPrice}</h2>
 
                 {card.length ? <Link to={'/dashboard/reservation'}>
                     <button className='bg-[#D1A054] text-[#fff] text-xl font-semibold p-3 rounded-lg'>Pay</button>
