@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import registerImg from '../../src/assets/others/authentication2.png'
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
@@ -84,13 +84,13 @@ const Register = () => {
                 <title>Bistro Boss | Register</title>
             </Helmet>
             <div className="hero min-h-screen">
-                <div className="hero-content flex-col lg:flex-row gap-16 mt-40">
+                <div className="hero-content flex-col lg:flex-row gap-16 mt-40 max-sm:mt-20">
 
                     <div className="text-center lg:text-left w-1/2">
-                        <img className=' max-w-sm max-h-sm' src={registerImg} alt="" />
+                        <img src={registerImg} alt="" />
                     </div>
 
-                    <div className="card flex-shrink-0 w-full max-w-lg border rounded-lg p-5 theme_text">
+                    <div className="card flex-shrink-0 w-full max-w-lg border rounded-lg theme_text">
 
                         <div className="card-body">
                             <h1 className="text-4xl font-semibold text-[#444] text-center">Register now!</h1>

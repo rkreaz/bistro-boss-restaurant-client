@@ -56,7 +56,7 @@ const OurShop = () => {
                         } to={`/shop/${l}`}><div onClick={() => setPage(0)} className='mr-5 cursor-pointer' key={index}>{l}</div></NavLink>) : ''}
                     </div>
 
-                    <div className='mt-10 grid grid-cols-3 gap-12'>
+                    <div className='mt-10 lg:grid grid-cols-3 gap-12 max-sm:p-5'>
                         {filterMenu.length ? filterMenu.slice(limit * page, limit * (page + 1)).map(i => <Card key={i._id} card={i}></Card>) : ''}
                     </div>
                     <div className='mt-10 text-center flex items-center justify-center theme_text'>

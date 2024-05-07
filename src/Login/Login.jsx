@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import loginImg from '../../src/assets/others/authentication2.png'
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { Helmet } from 'react-helmet-async';
 import { AuthContext } from '../Providers/AuthProviders';
 import Swal from 'sweetalert2';
@@ -91,10 +91,9 @@ const Login = () => {
             </Helmet>
 
             <div className="hero min-h-screen">
-                <div className="hero-content flex-col lg:flex-row gap-16 mt-40">
-
+                <div className="hero-content flex-col lg:flex-row gap-16 mt-40 max-sm:mt-20">
                     <div className="text-center lg:text-left w-1/2">
-                        <img className=' max-w-sm max-h-sm' src={loginImg} alt="" />
+                        <img src={loginImg} alt="" />
                     </div>
 
                     <div className="card flex-shrink-0 w-full max-w-lg border rounded-lg p-5">
