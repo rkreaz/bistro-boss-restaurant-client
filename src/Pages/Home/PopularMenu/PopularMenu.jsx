@@ -1,7 +1,6 @@
-// import React, { useEffect, useState } from 'react';
-import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import ItemMenu from '../../Shard/ItemMenu/ItemMenu';
 import useMenu from '../../../hooks/useMenu';
+import { Link } from 'react-router-dom';
 
 const PopularMenu = () => {
     const [menu] = useMenu();
@@ -19,20 +18,19 @@ const PopularMenu = () => {
 
 
     return (
-        <section className='theme'>
+        <section className='bg-[#fff] pt-20'>
             <div className='max-w-6xl mx-auto'>
-                <SectionTitle
-                    subHeading='---Check it out---'
-                    Heading='POPULAR MENU'
-                ></SectionTitle>
-                <div className='grid lg:grid-cols-2 sm:grid-cols-2  gap-8 mt-10 mb-8 px-5'>
-                    {popular.map(item => <ItemMenu
+            <h1 className="font-bold text-xl md:px-5 text-[#000000]">Popular Food</h1>
+                <div className='grid lg:grid-cols-2 sm:grid-cols-2  gap-5 mt-5 mb-8 px-5'>
+                    {popular.slice(0, 6).map(item => <ItemMenu
                         key={item._id}
                         item={item}
                     ></ItemMenu>)}
                 </div>
                 <div className='text-center pb-16 max-sm:pb-5'>
-                    <button className="btn btn-outline text-[#fff] bg-[#9C0C0C] text-base border-0 border-b-4 theme_text">View Full  Menu</button>
+                  <Link to={'/shop/popular'}>
+                  <button className="btn btn-slide-left rounded-none text-[#fff] bg-[#FFB23F] text-base border-0">View Full  Menu</button>
+                  </Link>
                 </div>
             </div>
         </section>

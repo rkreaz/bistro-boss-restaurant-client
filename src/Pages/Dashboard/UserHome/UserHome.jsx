@@ -6,15 +6,15 @@ const UserHome = () => {
 
     return (
         <div>
-            <h1 className="text-5xl mt-14 ml-6 font-bold text-center text-[#9C0C0C]">
+            <h1 className="text-5xl mt-10 ml-6 font-bold text-center text-[#FB6E09]">
                 <span>Hi, Welcome </span>
                 {
                     user?.displayName ? user.displayName : 'Back'
                 }
             </h1>
 
-            <div className="flex items-center gap-10 justify-center min-h-screen">
-                <div className="avatar w-1/2 bg-[#9C0C0C] py-20 rounded-lg">
+            <div className="flex items-center gap-10 justify-center mt-20">
+                <div className="avatar w-1/4 bg-[#FB6E09] py-5 rounded-lg">
                     <div className="w-40 rounded-full ring ring-primary ring-offset-2 mx-auto">
                         <img src={user?.photoURL} />
                     </div>

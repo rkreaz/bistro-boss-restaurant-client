@@ -1,4 +1,3 @@
-import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import useCard from '../../../hooks/useCard';
 import { RiDeleteBinLine } from "react-icons/ri";
 import Swal from 'sweetalert2';
@@ -39,17 +38,14 @@ const Cart = () => {
 
     return (
         <div>
-            <SectionTitle
-                subHeading={'My Cart'}
-                Heading={'WANNA ADD MORE?'}
-            ></SectionTitle>
+             <h1 className="font-bold text-2xl text-[#FB6E09] mt-10 text-center">My Total Orders Food <span></span></h1>
 
             <div className='flex justify-evenly  mt-14'>
                 <h2 className=' text-3xl font-bold'>Total orders: {card.length}</h2>
                 <h2 className=' text-3xl font-bold'>total price: ${totalPrice}</h2>
 
                 {card.length ? <Link to={'/dashboard/reservation'}>
-                    <button className='bg-[#D1A054] text-[#fff] text-xl font-semibold p-3 rounded-lg'>Pay</button>
+                    <button className='bg-[#FB6E09] text-[#fff] text-xl font-semibold p-3 rounded-lg'>Pay</button>
                 </Link>
                 :
                 <button disabled className='bg-[#271e12] text-[#998f81] text-xl font-semibold p-3 rounded-lg'>Pay</button>
@@ -61,7 +57,7 @@ const Cart = () => {
                 <div className="overflow-x-auto rounded-t-lg mt-5">
                     <table className="table w-full">
                         {/* head */}
-                        <thead className='bg-[#D1A054] text-[#fff] text-lg'>
+                        <thead className='bg-[#FB6E09] text-[#fff] text-lg'>
                             <tr>
                                 <th>Number</th>
                                 <th>Image</th>

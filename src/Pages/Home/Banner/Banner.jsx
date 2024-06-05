@@ -13,10 +13,10 @@ import './banner.css'
 
 const Banner = () => {
     return (
-        <div className='theme'>
+        <div className=''>
             <Carousel className="text-center w-full">
                 <div>
-                    <img src={image1} />
+                    <img src={image5} />
                 </div>
                 <div>
                     <img src={image2} />
@@ -28,7 +28,7 @@ const Banner = () => {
                     <img src={image4} />
                 </div>
                 <div>
-                    <img src={image5} />
+                    <img src={image1} />
                 </div>
                 <div>
                     <img src={image6} />

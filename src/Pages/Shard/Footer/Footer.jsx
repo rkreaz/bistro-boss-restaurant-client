@@ -1,38 +1,59 @@
-import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
     return (
         <>
-            <div className="theme">
-                <div className="max-w-6xl mx-auto">
-                    <footer className="grid grid-cols-2 theme_text">
-                        <aside className=" p-14 max-sm:p-5 text-center">
-                            <h1 className="text-2xl font-bold max-sm:text-sm">CONTACT US</h1>
-                            <div className="space-y-1 font-medium max-sm:text-xs">
-                                <p className="mt-5">123 ABS Street, Uni 21, Bangladesh </p>
-                                <p> +88 123456789 </p>
-                                <p>Mon - Fri: 08:00 - 22:00</p>
-                                <p> Sat - Sun: 10:00 - 23:00</p>
-                            </div>
-                        </aside>
-                        <nav className=" p-14 max-sm:p-5 text-center">
-                            <h6 className="text-2xl font-bold max-sm:text-sm">Follow US</h6>
-                            <p className="mt-3 font-medium max-sm:text-sm">Join us on social media</p>
-                            <div className="flex gap-5 mt-5 justify-center">
-                                <FaFacebook className="text-2xl max-sm:text-lg text-[#0866FF]"></FaFacebook>
-                                <FaYoutube className="text-2xl max-sm:text-lg text-[#FF0000]"></FaYoutube>
-                                <FaTwitter className="text-2xl max-sm:text-lg text-[#1DA1F2]"></FaTwitter>
-                               
-                            </div>
-                        </nav>
+            <div className=" bg-[#fff] font-poppins">
 
-                    </footer>
-                    <footer className="footer footer-center  theme_text pb-10">
-                        <aside>
-                            <p className="text-lg font-medium max-sm:text-sm max-sm:mt-5">Copyright © 2024 - All right reserved by Rzaul Karim Reaz</p>
-                        </aside>
+                <div className="">
+                    <footer className="max-sm:justify-center max-w-6xl mx-auto footer px-12 pt-20 py-8 text-[#000]">
+
+                        <nav>
+                            <h2 className='font-extrabold text-xl mb-5 hover:text-[#FF720D]'>Quick Links</h2>
+                            <a className="link link-hover hover:text-[#FF720D]">Home</a>
+                            <a className="link link-hover hover:text-[#FF720D]">About Us</a>
+                            <a className="link link-hover hover:text-[#FF720D]">Services</a>
+                            <a className="link link-hover hover:text-[#FF720D]">Contact Us</a>
+                        </nav>
+                        <nav>
+                            <h2 className='font-extrabold text-xl mb-5 hover:text-[#FF720D]'>Our Services</h2>
+                            <a className="link link-hover hover:text-[#FF720D]">Smartphone Repair</a>
+                            <a className="link link-hover hover:text-[#FF720D]">Laptop Repair</a>
+                            <a className="link link-hover hover:text-[#FF720D]">Desktop Repair</a>
+                            <a className="link link-hover hover:text-[#FF720D]">Smart Watch Repair</a>
+                        </nav>
+                        <nav>
+                            <h2 className='font-extrabold text-xl mb-5 hover:text-[#FF720D]'>Contact Us</h2>
+                            <a className="link link-hover hover:text-[#FF720D]">
+                                32 Main Street, Miami, <br />
+                                Florida 19091, FL</a>
+                            <a className="link link-hover hover:text-[#FF720D]">
+                                666 888 0000 <br />
+                                444 888 0000</a>
+                            <a className="link link-hover hover:text-[#FF720D]">
+                                needhelp@company.com <br />
+                                company@gmail.com</a>
+                        </nav>
+                        <nav>
+                            <h2 className='font-extrabold text-xl mb-5 hover:text-[#FF720D]'>Download App On Mobile</h2>
+                            <a className="link link-hover hover:text-[#FF720D]">30% discount on your first order</a>
+                            <div className="flex gap-5 mt-2">
+                                <a href="https://www.apple.com/store" target="_blank"><img src="https://i.ibb.co/nz2v9md/apple.png" alt="" /></a>
+                                <a href="https://play.google.com/store/" target="_blank"><img src="https://i.ibb.co/7SPBYR6/google.png" alt="" /></a>
+                            </div>
+                            <a className="link text-base font-semibold link-hover hover:text-[#FF720D] mt-2">
+                            We Accept Payment Via</a>
+                            <a href=""><img src="https://i.ibb.co/N3HLkjs/card.png" alt="" /></a>
+                        </nav>
                     </footer>
                 </div>
+                <div className="border-t-2"></div>
+
+                <footer className="footer max-w-6xl mx-auto items-center justify-around px-12 py-10 pb-20 text-neutral-content">
+                    <aside className="items-center grid-flow-col">
+                        <p className='hover:text-[#FF720D] text-[#FF6B01] text-xl'>Copyright © 2023 - By Rezaul Karim Reaz</p>
+                    </aside>
+
+                </footer>
             </div>
 
         </>

@@ -6,19 +6,35 @@
   color: red;
 }
 
-body.white_mood .theme {
-  background: #fff !important;
+a.active {
+  color: #F66904  !important;
+  background-color: #fff !important;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
-body.dark_mood .theme {
-  background: #000 !important;
+
+/* reviews */
+::after {
+  font-size: 25px !important;
+  color: #F66904 !important;
 }
 
-
-body.white_mood .theme_text {
-  color: #000 !important
+.btn {
+  font-size: 15px;
+  text-transform: capitalize !important;
+  font-weight: 400;
+  background-color: transparent;
+  transition: all 0.5s ease;
+  cursor:pointer;
+  color: #fff;
 }
-
-body.dark_mood .theme_text {
-  color: #fff !important
+.btn-slide-left {
+  background-color: #F36702 !important;
+  background: linear-gradient(to left, transparent 50%, #964207 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+.btn-slide-left:hover {
+  background-position: left bottom;
 }

@@ -1,8 +1,6 @@
-import { FaBook, FaCalendar, FaShoppingBag, FaHome,  FaShoppingCart, FaCcAmazonPay, FaUtensils, FaList, FaUser } from 'react-icons/fa';
-import { NavLink, Outlet } from 'react-router-dom';
+import { FaCalendar, FaShoppingBag, FaHome, FaShoppingCart, FaCcAmazonPay, FaUtensils, FaList, FaUser } from 'react-icons/fa';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import { IoIosCall, IoMdMenu } from "react-icons/io";
-import { FiShoppingCart } from "react-icons/fi";
-import { VscPreview } from "react-icons/vsc";
 import useCard from '../hooks/useCard';
 import useAdmin from '../hooks/useAdmin';
 
@@ -11,15 +9,16 @@ const Dashboard = () => {
     const [isAdmin] = useAdmin();
 
     return (
-        <div className='theme'>
-            <div className='max-w-6xl mx-auto theme_text'>
+        <div className=''>
+            <div className='max-w-6xl mx-auto'>
                 <div className='flex'>
-                    <div className='w-64 min-h-screen bg-[#D1A054]'>
-                        <div className='text-[#151515] px-8 mt-14'>
-                            <h1 className="text-xl font-extrabold">BISTRO BOSS</h1>
-                            <p className="text-base uppercase font-semibold tracking-widest">Restaurant</p>
+                    <div className='w-64 min-h-screen bg-[#FB6E09]'>
+                        <div className=' px-8 mt-14'>
+                            <Link className="" to={'/'}>
+                                <img className="w-40 h-12" src="https://i.ibb.co/68H1Xmt/Screenshot-67-removebg-preview.png" alt="" />
+                            </Link>
                         </div>
-                        <ul className='menu p-4 text-[#151515] text-lg font-medium mt-5'>
+                        <ul className='menu p-4 text-[#fff] text-lg font-medium mt-5'>
 
 
                             {
@@ -41,11 +40,6 @@ const Dashboard = () => {
                                             <NavLink to={'/dashboard/manageItems'}>
                                                 <FaList></FaList>
                                                 Manage Items</NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink to={'/dashboard/manageBooking'}>
-                                                <FaBook></FaBook>
-                                                Manage Booking</NavLink>
                                         </li>
                                         <li>
                                             <NavLink to={'/dashboard/users'}>
@@ -75,16 +69,6 @@ const Dashboard = () => {
                                                 <FaShoppingCart></FaShoppingCart>
                                                 My Card ({card.length})</NavLink>
                                         </li>
-                                        <li>
-                                            <NavLink to={'/dashboard/review'}>
-                                                <VscPreview></VscPreview>
-                                                Add Review</NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink to={'/dashboard/booking'}>
-                                                <FiShoppingCart></FiShoppingCart>
-                                                My Booking</NavLink>
-                                        </li>
                                     </>
                             }
 
@@ -97,7 +81,7 @@ const Dashboard = () => {
                                     Home</NavLink>
                             </li>
                             <li>
-                                
+
                                 <NavLink to={'/menu'}>
                                     <IoMdMenu></IoMdMenu>
                                     Menu</NavLink>

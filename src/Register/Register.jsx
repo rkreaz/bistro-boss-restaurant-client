@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import registerImg from '../../src/assets/others/authentication2.png'
-import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
+import {FaGoogle } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
 import { Helmet } from 'react-helmet-async';
 import { AuthContext } from '../Providers/AuthProviders';
@@ -84,16 +84,16 @@ const Register = () => {
                 <title>Bistro Boss | Register</title>
             </Helmet>
             <div className="hero min-h-screen">
-                <div className="hero-content flex-col lg:flex-row gap-16 mt-40 max-sm:mt-20">
+                <div className="hero-content flex-col lg:flex-row gap-16 mt-10 max-sm:mt-20">
 
                     <div className="text-center lg:text-left w-1/2">
                         <img src={registerImg} alt="" />
                     </div>
 
-                    <div className="card flex-shrink-0 w-full max-w-lg border rounded-lg theme_text">
+                    <div className="card flex-shrink-0 w-full max-w-lg border rounded-lg">
 
                         <div className="card-body">
-                            <h1 className="text-4xl font-semibold text-[#444] text-center">Register now!</h1>
+                            <h1 className="text-4xl font-semibold text-[#F36702] text-center">Register now!</h1>
 
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="form-control">
@@ -165,10 +165,7 @@ const Register = () => {
                             <p>Already registered?<Link to={'/login'} className='font-bold'> Go to Login</Link></p>
                             <h2 className='text-xl font-semibold mt-5'>Or sign in with</h2>
                             <div className='flex gap-5 justify-center items-center mb-11 mt-8'>
-
-                                <a onClick={handleLoginWithGoogle} className="btn btn-slide-left"> <FaGoogle className='text-[#444444] text-2xl'></FaGoogle></a>
-                                <a className="btn btn-slide-left"><FaFacebook className='text-[#444444] text-2xl'></FaFacebook></a>
-                                <a className="btn btn-slide-left"><FaGithub className='text-[#444444] text-2xl'></FaGithub> </a>
+                            <a onClick={handleLoginWithGoogle} className="btn btn-slide-left"><FaGoogle className='text-[#6DBE3A]'></FaGoogle>Login With Google</a>
                             </div>
                         </div>
 

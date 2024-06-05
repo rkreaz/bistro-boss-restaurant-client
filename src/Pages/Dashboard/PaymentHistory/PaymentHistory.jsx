@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
@@ -18,18 +17,13 @@ const PaymentHistory = () => {
 
     return (
         <div className="">
-            <SectionTitle
-                subHeading={'At a Glance!'} Heading={'PAYMENT HISTORY'}
-            ></SectionTitle>
-
-            <div className='flex ml-16  mt-14'>
-                <h2 className='text-3xl font-bold'>Total Payments: {payment.length}</h2>
-            </div>
-            <div className='ml-8 mb-20'>
+            <h1 className="font-bold text-2xl text-[#FB6E09] mt-10 text-center">Total Payments: <span>{payment.length}</span></h1>
+            
+            <div className='ml-8 mb-20 mt-10'>
                 <div className="overflow-x-auto rounded-t-lg mt-5">
                     <table className="table w-full">
                         {/* head */}
-                        <thead className='bg-[#D1A054] text-[#fff] text-lg'>
+                        <thead className='bg-[#FB6E09] text-[#fff] text-lg'>
                             <tr>
                                 <th>#</th>
                                 <th>Email</th>
@@ -59,7 +53,7 @@ const PaymentHistory = () => {
                                         {item.date}
 
                                     </th>
-                                    <th>
+                                    <th className="text-[#3B68C9]">
                                         {item.status}
                                     </th>
                                 </tr>)

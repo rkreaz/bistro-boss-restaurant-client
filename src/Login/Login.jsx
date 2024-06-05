@@ -1,11 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import loginImg from '../../src/assets/others/authentication2.png'
-import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
+import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { Helmet } from 'react-helmet-async';
 import { AuthContext } from '../Providers/AuthProviders';
-import Swal from 'sweetalert2';
 import useAxiosPublic from '../hooks/useAxiosPublic';
 
 const Login = () => {
@@ -29,11 +28,6 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                Swal.fire({
-                    title: "Success",
-                    text: "Your Login has been successfully.",
-                    icon: "success"
-                });
                 navigate(from, { replace: true });
             })
             .then(error => {
@@ -70,11 +64,6 @@ const Login = () => {
                 axiosPublic.post('/users', userInfo)
                     .then(res => {
                         console.log(res.data);
-                        Swal.fire({
-                            title: "Success",
-                            text: "Your Google Login has been successfully.",
-                            icon: "success"
-                        });
                         navigate(location?.state ? location?.state : '/')
 
                     })
@@ -91,14 +80,14 @@ const Login = () => {
             </Helmet>
 
             <div className="hero min-h-screen">
-                <div className="hero-content flex-col lg:flex-row gap-16 mt-40 max-sm:mt-20">
+                <div className="hero-content flex-col lg:flex-row gap-16 mt-10 max-sm:mt-20">
                     <div className="text-center lg:text-left w-1/2">
                         <img src={loginImg} alt="" />
                     </div>
 
                     <div className="card flex-shrink-0 w-full max-w-lg border rounded-lg p-5">
                         <div className="card-body mt-12">
-                            <h1 className="text-4xl font-semibold text-center">Login now!</h1>
+                            <h1 className="text-4xl font-semibold text-center text-[#F36702]">Login now!</h1>
 
                             <form onSubmit={handleRegister}>
                                 <div className="form-control">
@@ -136,11 +125,8 @@ const Login = () => {
                             <h2 className='text-xl font-semibold mt-5'>Or sign in with</h2>
                             <div className='flex gap-5 justify-center items-center mb-11 mt-8'>
 
-                                <a onClick={handleLoginWithGoogle} className="btn btn-slide-left"> <FaGoogle className='text-[#444444] text-2xl'></FaGoogle></a>
+                                <a onClick={handleLoginWithGoogle} className="btn btn-slide-left"><FaGoogle className='text-[#6DBE3A]'></FaGoogle>Login With Google</a>
 
-                                <a className="btn btn-slide-left"><FaFacebook className='text-[#444444] text-2xl'></FaFacebook></a>
-
-                                <a className="btn btn-slide-left"><FaGithub className='text-[#444444] text-2xl'></FaGithub> </a>
                             </div>
                         </div>
 

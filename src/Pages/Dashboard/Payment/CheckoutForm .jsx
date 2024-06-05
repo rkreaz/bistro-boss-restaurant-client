@@ -119,7 +119,7 @@ const CheckoutForm = () => {
                     }}
                 />
                 <div className="text-center">
-                    <button className="btn bg-[#570DF8] mt-20 w-1/2 text-xl text-[#fff]" type="submit" disabled={!stripe || !clientSecret}>
+                    <button className="btn w-1/3 btn-slide-left rounded-none text-[#fff] bg-[#FFB23F] text-base border-0 mt-20" type="submit" disabled={!stripe || !clientSecret}>
                         Pay
                     </button>
                 </div>

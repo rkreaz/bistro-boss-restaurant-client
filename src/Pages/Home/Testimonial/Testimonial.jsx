@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
@@ -16,32 +15,27 @@ const Testimonial = () => {
             .then(data => setReviews(data))
     }, [])
     return (
-        <div className='theme'>
-            <div className='max-w-6xl mx-auto'>
-                <SectionTitle
-                    subHeading={'What Our Clients Say'}
-                    Heading={'TESTIMONIALS'}
-                ></SectionTitle>
-                <div className='theme_text'>
+        <div className='bg-[#fff]'>
+            <div className='max-w-6xl mx-auto pb-20 pt-20'>
+              
+                <div className='bg-[#EFEFEF]'>
                     <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                         {
                             reviews.map(review => <SwiperSlide
                                 key={review._id}
 
                             >
-                                <div className='mx-20 flex flex-col items-center text-center mb-32 max-sm:mb-16'>
-                                    <div className='mt-14 max-sm:mt-5'>
+                                <div className='px-10 mx-20 flex flex-col items-center text-center mb-14 mt-14 max-sm:mb-16'>
+                                <p className='text-6xl max-sm:text-2xl text-[#151515] max-sm:mt-5 max-sm:mb-5'><FaQuoteLeft /></p>
+                                    <div className='mt-5 max-sm:mt-5'>
                                         <Rating
                                             style={{ maxWidth: 150 }}
                                             value={review.rating}
                                             readOnly />
 
                                     </div>
-                                    <p className='text-6xl max-sm:text-2xl text-[#151515] mt-12 mb-12 max-sm:mt-5 max-sm:mb-5'><FaQuoteLeft /></p>
-
-
-                                    <p className='max-sm:text-sm'>{review.details}</p>
-                                    <h2 className='text-3xl font-bold text-[#D29B1C] mt-4 max-sm:text-xl'>{review.name}</h2>
+                                    <p className='max-sm:text-sm mt-3 text-[#151515]'>{review.details}</p>
+                                    <h2 className='text-3xl font-bold text-[#F66904] mt-4 max-sm:text-xl'>{review.name}</h2>
                                 </div>
 
 
@@ -52,7 +46,6 @@ const Testimonial = () => {
 
                 </div>
             </div>
-            <p className='border-t-2 pb-10'></p>
         </div>
     );
 };

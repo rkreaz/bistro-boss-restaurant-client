@@ -1,10 +1,10 @@
 [
     {
         "_id": "642c155b2c4774f05c36eeaa",
-        "name": "Haddock",
+        "name": "iPhone 13 mini",
         "recipe": "Chargrilled fresh tuna steak (served medium rare) on classic Niçoise salad with French beans.",
-        "image": "https://www.familyfoodonthetable.com/wp-content/uploads/2023/03/Marinated-veggie-salad-1200-6-720x720.jpg",
-        "category": "salad",
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-mini.jpg",
+        "category": "phone",
         "price": 14.7
     },
     {
@@ -25,10 +25,10 @@
     },
     {
         "_id": "642c155b2c4774f05c36ee88",
-        "name": "Escalope de Veau",
+        "name": "iPhone 13 mini",
         "recipe": "Pan roasted haddock fillet wrapped in smoked French bacon with pea purée and tomato and chive vinaigrette",
-        "image": "https://4.bp.blogspot.com/-BUY0l_E2xFo/VrJyAlomT2I/AAAAAAAALmc/3f_5C7RPESg/s1600/Triple%2BChocolate%2BStrawberry%2BShortcake%2Bsqu%2Bwm.jpg",
-        "category": "dessert",
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-mini.jpg",
+        "category": "phone",
         "price": 12.5
     },
     {

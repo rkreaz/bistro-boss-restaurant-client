@@ -1,11 +1,9 @@
 import { FaEdit } from "react-icons/fa";
-import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import useMenu from "../../../hooks/useMenu";
 import { RiDeleteBinLine } from "react-icons/ri";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
 
 const ManageItems = () => {
     const [menu, , refetch] = useMenu();
@@ -47,20 +45,13 @@ const ManageItems = () => {
 
     return (
         <div>
-            <SectionTitle
-                subHeading={'Hurry Up!'}
-                Heading={'MANAGE ALL ITEMS'}
-            ></SectionTitle>
+            <h1 className="font-bold text-2xl text-[#FB6E09] mt-10 text-center">Manage <span className="text-[#097428]">{menu.length}</span> food items:</h1>
             <div>
-                <div className='flex ml-16  mt-14'>
-                    <h2 className='text-[#fff] text-3xl font-bold'>Total Items: {menu.length}</h2>
-                </div>
-
-                <div className='ml-16 mb-20'>
+                <div className='ml-16 mt-10'>
                     <div className="overflow-x-auto rounded-t-lg mt-5">
                         <table className="table w-full">
                             {/* head */}
-                            <thead className='bg-[#D1A054] text-[#fff] text-lg'>
+                            <thead className='bg-[#FB6E09] text-[#fff] text-lg'>
                                 <tr>
                                     <th>Number</th>
                                     <th>Item Image</th>
@@ -97,7 +88,7 @@ const ManageItems = () => {
                                         <th>
                                             <Link to={`/dashboard/updateItem/${item._id}`}>
                                                 <span className='flex justify-center items-center'>
-                                                    <p className='bg-[#D1A054] p-2 rounded-lg'>
+                                                    <p className='bg-[#FB6E09] p-2 rounded-lg'>
                                                         <FaEdit className="text-2xl text-[#fff] cursor-pointer"></FaEdit>
                                                     </p>
                                                 </span>

@@ -40,8 +40,8 @@ const OurShop = () => {
         setPage(0)
     }
     return (
-        <div className='theme'>
-            <div  className='max-w-6xl mx-auto theme_text'>
+        <div className=''>
+            <div  className='max-w-6xl mx-auto'>
                 <Helmet>
                     <title>Bistro Boss | Our Shop</title>
                 </Helmet>
@@ -59,14 +59,16 @@ const OurShop = () => {
                     <div className='mt-10 lg:grid grid-cols-3 gap-12 max-sm:p-5'>
                         {filterMenu.length ? filterMenu.slice(limit * page, limit * (page + 1)).map(i => <Card key={i._id} card={i}></Card>) : ''}
                     </div>
-                    <div className='mt-10 text-center flex items-center justify-center theme_text'>
-                        <div className="join">
-                            <button disabled={page === 0 ? true : false} onClick={() => setPage(page - 1)} className="join-item btn">prev</button>
-                            {pageList.map((p, index) => <input onClick={() => setPage(index)} key={index} className="join-item btn btn-square" type="radio" name="options" aria-label={index + 1} checked={page === index ? true : ''} />)}
-                            <button disabled={pageNumber === page + 1 ? true : false} onClick={() => setPage(page + 1)} className="join-item btn">next</button>
+                    <div className='mt-10 text-center flex items-center justify-center  gap-2'>
+                        <div className="join bg-[#FF720D] rounded-none">
+                            <button disabled={page === 0 ? true : false} onClick={() => setPage(page - 1)} className="join-item btn page_option border-0 mr-2">prev</button>
+
+                            {pageList.map((p, index) => <input onClick={() => setPage(index)} key={index} className="join-item btn btn-square page_option border-0" type="radio" name="options" aria-label={index + 1} checked={page === index ? true : ''} />)}
+
+                            <button disabled={pageNumber === page + 1 ? true : false} onClick={() => setPage(page + 1)} className="join-item btn page_option border-0 ml-2">next</button>
                         </div>
-                        <div>
-                            <select onChange={handleLimit} defaultValue={limit} className="px-3 py-3 rounded-r-lg">
+                        <div className=''>
+                            <select onChange={handleLimit} defaultValue={limit} className="px-3 py-[9px] rounded-none bg-[#FF720D] page_option text-[20px] text-[#fff]">
                                 <option value={3}>3</option>
                                 <option value={6}>6</option>
                                 <option value={9}>9</option>

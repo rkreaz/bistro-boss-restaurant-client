@@ -20,10 +20,10 @@ const Home = () => {
             <Orders></Orders>
             <Feedback></Feedback>
             <PopularMenu></PopularMenu>
-            <Contact></Contact>
             <Cards></Cards>
             <Featured></Featured>
             <Testimonial></Testimonial>
+            <Contact></Contact>
 
         </>
     );

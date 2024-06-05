@@ -66,7 +66,7 @@ const AdminHome = () => {
 
     return (
         <div>
-            <h1 className="text-3xl mt-14 ml-6 font-medium">
+            <h1 className="text-3xl mt-14 ml-6 font-medium text-[#FB6E09]">
                 <span>Hi, Welcome </span>
                 {
                     user?.displayName ? user.displayName : 'Back'
@@ -76,7 +76,7 @@ const AdminHome = () => {
             <div>
                 <div className="grid grid-cols-4 shadow mt-9 gap-5 ml-6">
 
-                    <div className="flex items-center gap-3 justify-center bg-gradient-to-r from-[#BB34F5] to-[#FCDBFF] text-white rounded-2xl px-8 py-8">
+                    <div className="flex items-center gap-3 justify-center bg-gradient-to-r from-[#FB6E09] to-[#FCDBFF] text-white rounded-2xl px-8 py-8">
                         <div className="">
                             <FaDollarSign className="w-12 h-12"></FaDollarSign>
                         </div>
@@ -87,7 +87,7 @@ const AdminHome = () => {
 
                     </div>
 
-                    <div className="flex items-center gap-3 justify-center bg-gradient-to-r from-[#D3A256] to-[#FDE8C0] text-white rounded-2xl px-5 py-8">
+                    <div className="flex items-center gap-3 justify-center bg-gradient-to-r from-[#FF0000] to-[#FDE8C0] text-white rounded-2xl px-5 py-8">
                         <div className="">
                             <FaUsers className="w-12 h-12"></FaUsers>
                         </div>

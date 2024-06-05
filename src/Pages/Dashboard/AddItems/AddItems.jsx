@@ -1,4 +1,3 @@
-import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import { useForm } from 'react-hook-form';
 import { FaUtensils } from 'react-icons/fa';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
@@ -21,7 +20,7 @@ const AddItems = () => {
                 'content-type': 'multipart/form-data'
             }
         });
-        
+
         if (res.data.success) {
             const menuItem = {
                 name: data.name,
@@ -48,11 +47,9 @@ const AddItems = () => {
     };
 
     return (
-        <div className=''>
-            <SectionTitle subHeading={"What's new?"} Heading={'ADD AN ITEM'}
-            ></SectionTitle>
-
-            <div className='px-20 mt-16'>
+        <div className='px-20'>
+            <h1 className="font-bold text-2xl text-[#FB6E09] mt-10 text-center">Added your food items:</h1>
+            <div className='mt-10 pb-10'>
                 <form className='space-y-6' onSubmit={handleSubmit(onSubmit)}>
 
                     <div>
@@ -102,9 +99,11 @@ const AddItems = () => {
                         <input {...register("image", { required: true })} type="file" className="file-input file-input-bordered file-input-info w-full max-w-xs bg-[#f3eeee] text-[#000]" />
                     </div>
 
-                    <button className='btn bg-[#8E6526] text-[#fff] text-lg font-semibold'>
-                        Add Item <FaUtensils></FaUtensils>
-                    </button>
+                    <div className='text-center'>
+                        <button className='btn btn-slide-left rounded-none text-[#fff] bg-[#FFB23F] text-base border-0 mt-5 w-1/3'>
+                            Add Item <FaUtensils></FaUtensils>
+                        </button>
+                    </div>
 
                 </form>
             </div>

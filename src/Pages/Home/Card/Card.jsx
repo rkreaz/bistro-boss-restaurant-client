@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import useCard from '../../../hooks/useCard';
+import { FaShoppingCart } from "react-icons/fa";
 
 const Card = ({ card }) => {
     const { name, recipe, image, price, _id } = card;
@@ -56,14 +57,14 @@ const Card = ({ card }) => {
         }
     }
     return (
-        <div>
-            <div className="card bg-[#F90101] shadow-2xl border max-sm:mt-8">
-                <figure><img className='w-full h-60' src={image} alt="Shoes" /></figure>
-                <p className='text-[#fff] bg-[#F90101] absolute right-0 px-4 py-1 rounded-lg mr-2 mt-2'>${price}</p>
+        <div className=" ">
+            <div className="card rounded-none hover:border-[#FF720D] border max-sm:mt-8">
+                <figure><img className='w-full h-60 p-9' src={image} alt="Shoes" /></figure>
+                <p className='text-[#000] bg-[#FF720D] absolute right-0 px-2 py-0 rounded-lg mr-2 mt-2'>${price}</p>
                 <div className="card-body h-64">
-                    <h2 className="card-title max-sm:text-lg">{name}</h2>
-                    <p className="max-sm:text-sm">{recipe}</p>
-                    <button onClick={handleAddToCard} className="btn btn-outline text-[#fff] bg-[#9C0C0C] text-base border-0 border-b-4">add to cart</button>
+                    <h2 className="card-title max-sm:text-lg text-[#000]">{name}</h2>
+                    <p className="max-sm:text-sm text-[#000]">{recipe}</p>
+                    <button onClick={handleAddToCard} className="btn btn-slide-left rounded-none text-[#fff] bg-[#FF720D] text-base border-0"><FaShoppingCart></FaShoppingCart> add to cart</button>
                 </div>
             </div>
         </div>

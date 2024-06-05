@@ -2,7 +2,6 @@
 import { Helmet } from 'react-helmet-async';
 import Cover from '../../Shard/Cover/Cover';
 import useMenu from '../../../hooks/useMenu';
-import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import MenuCategory from '../../MenuCategory/MenuCategory';
 import menuIng from '../../../assets/menu/banner3.jpg'
 import dessertImg from '../../../assets/menu/dessert-bg.jpeg'
@@ -20,15 +19,12 @@ const Menu = () => {
     const soup = menu.filter(item => item.category === 'soup');
 
     return (
-        <div className='theme'>
+        <div className=''>
             <div className='max-w-6xl mx-auto '>
                 <Helmet>
                     <title>Bistro Boss | Menu</title>
                 </Helmet>
                 <Cover img={menuIng} title={"OUR MENU"} pra={'Would You Like To Try A Dish?'}></Cover>
-
-                {/* main cover */}
-                <SectionTitle subHeading={"Don't miss"} Heading={"TODAY'S OFFER"}></SectionTitle>
 
                 {/* offered menu items */}
                 <MenuCategory items={offered} button={'ORDER YOUR FAVOURITE Offered FOOD'}></MenuCategory>

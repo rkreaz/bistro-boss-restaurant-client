@@ -2,6 +2,7 @@ import ItemMenu from '../Shard/ItemMenu/ItemMenu';
 import Cover from '../Shard/Cover/Cover';
 import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
+import { FaArrowRight} from 'react-icons/fa';
 
 const MenuCategory = ({ items, title, img, button }) => {
     return (
@@ -15,7 +16,7 @@ const MenuCategory = ({ items, title, img, button }) => {
             </div>
             <Link to={`/shop/${title}`}>
                 <div className='text-center pb-24'>
-                    <button className="btn btn-outline text-[#fff] theme_text bg-[#9C0C0C] text-base border-0 border-b-4 uppercase max-sm:text-xs">{button}</button>
+                    <button className="btn btn-slide-left rounded-none text-[#fff] bg-[#FFB23F] text-base border-0"> {button} <FaArrowRight></FaArrowRight></button>
                 </div>
             </Link>
         </div>
@@ -23,10 +24,10 @@ const MenuCategory = ({ items, title, img, button }) => {
 };
 
 MenuCategory.propTypes = {
-    items: PropTypes.object,
-    title: PropTypes.object,
-    img: PropTypes.object,
-    button: PropTypes.object
+    items: PropTypes.array,
+    title: PropTypes.string,
+    img: PropTypes.string,
+    button: PropTypes.string
 };
 
 export default MenuCategory;
